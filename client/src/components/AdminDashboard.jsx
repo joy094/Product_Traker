@@ -32,7 +32,7 @@ const AdminDashboard = () => {
 
   const fetchShipments = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/tracking");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/tracking`);
       setShipments(res.data);
     } catch (error) {
       console.error("Error fetching shipments:", error);
@@ -48,7 +48,7 @@ const AdminDashboard = () => {
         stages: newShipment.stages.map((s) => ({ ...s, done: false })),
       };
 
-      await axios.post("http://localhost:5000/api/tracking", shipmentToSend, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/tracking`, shipmentToSend, {
         headers: { "Content-Type": "application/json" },
       });
       alert("Shipment added successfully ✅");
@@ -87,7 +87,7 @@ const AdminDashboard = () => {
       return;
     }
     try {
-      await axios.put("http://localhost:5000/api/tracking/bulk-update", {
+      await axios.put(`${import.meta.env.VITE_API_URL}/api/tracking/bulk-update`, {
         ids: selectedShipments,
         status: statusUpdate,
       });

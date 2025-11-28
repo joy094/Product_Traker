@@ -18,7 +18,7 @@ function TrackingForm() {
     }
 
     try {
-      const res = await fetch(`http://localhost:5000/api/tracking/${trackingNumber.trim()}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/tracking/${trackingNumber.trim()}`);
       if (!res.ok) {
         setError("❌ Tracking number not found.");
         return;
