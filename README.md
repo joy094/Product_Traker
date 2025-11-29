@@ -53,7 +53,7 @@ npm install
 npm run dev  # অথবা node server.js
 
 # Frontend (Vite) সেটআপ
-cd /client
+cd client
 npm install
 # .env.development এ যোগ করুন:
 # VITE_API_URL=http://localhost:5000
